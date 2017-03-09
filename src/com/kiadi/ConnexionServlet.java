@@ -33,10 +33,9 @@ public class ConnexionServlet extends HttpServlet {
     	
     	response.setContentType("text/plain");
     	
-    	Twitter twitter = connexion();
-    	//DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     	
-    	//response.getWriter().println("ConsumerKey : " + propTwitter.getProperty("oauth.consumerKey",""));
+    	Twitter twitter = connexion();
+    	
     	String hashtag = "#Humour";
     	
     	
@@ -57,7 +56,6 @@ public class ConnexionServlet extends HttpServlet {
 	    	throw new ServletException(e);
 	    }
 
-		//twitter.updateStatus("Post using Twitter4J Again");
 
 		System.out.println("Successfully updated the status in Twitter.");
     }

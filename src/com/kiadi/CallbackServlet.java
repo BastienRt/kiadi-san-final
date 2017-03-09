@@ -16,6 +16,7 @@ public class CallbackServlet {
         Twitter twitter = (Twitter) request.getSession().getAttribute("twitter");
         RequestToken requestToken = (RequestToken) request.getSession().getAttribute("requestToken");
         String verifier = request.getParameter("oauth_verifier");
+        
         try {
 	        try {
 	        	twitter.getOAuthAccessToken(requestToken, verifier);
@@ -26,6 +27,7 @@ public class CallbackServlet {
         } catch (NullPointerException e) {
         	request.getSession().invalidate();
         }
+        
         response.sendRedirect(request.getContextPath() + "/");
 	}
 }
