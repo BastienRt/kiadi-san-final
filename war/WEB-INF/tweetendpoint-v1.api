@@ -1,0 +1,208 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://kiadi-san-157609.appspot.com/_ah/api",
+  "name" : "tweetendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://kiadi-san-157609.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "kiadi.com",
+  "ownerName" : "kiadi.com",
+  "methods" : {
+    "tweetendpoint.removeTweet" : {
+      "path" : "tweet/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.TweetEndpoint.removeTweet",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "tweetendpoint.updateTweet" : {
+      "path" : "tweet",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.TweetEndpoint.updateTweet",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "tweetendpoint.insertTweet" : {
+      "path" : "tweet",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.TweetEndpoint.insertTweet",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "tweetendpoint.getTweet" : {
+      "path" : "tweet/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.TweetEndpoint.getTweet",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "tweetendpoint.listTweet" : {
+      "path" : "tweet",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.TweetEndpoint.listTweet",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Tweet" : {
+        "id" : "Tweet",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "content" : {
+            "type" : "string"
+          },
+          "author" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "category" : {
+            "type" : "string"
+          },
+          "falseAuthor1" : {
+            "type" : "string"
+          },
+          "falseAuthor2" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Tweet" : {
+        "id" : "CollectionResponse_Tweet",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Tweet"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.kiadi.TweetEndpoint.removeTweet" : {
+      },
+      "com.kiadi.TweetEndpoint.updateTweet" : {
+        "request" : {
+          "$ref" : "Tweet"
+        },
+        "response" : {
+          "$ref" : "Tweet"
+        }
+      },
+      "com.kiadi.TweetEndpoint.insertTweet" : {
+        "request" : {
+          "$ref" : "Tweet"
+        },
+        "response" : {
+          "$ref" : "Tweet"
+        }
+      },
+      "com.kiadi.TweetEndpoint.getTweet" : {
+        "response" : {
+          "$ref" : "Tweet"
+        }
+      },
+      "com.kiadi.TweetEndpoint.listTweet" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Tweet"
+        }
+      }
+    }
+  }
+}
