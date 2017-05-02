@@ -1,1 +1,6 @@
 /bin/
+src/com/kiadi/ScoreEntityEndpoint.java
+src/com/kiadi/TweetEndpoint.java
+war/WEB-INF/appengine-web.xml
+war/WEB-INF/scoreentityendpoint-v1.api
+war/WEB-INF/tweetendpoint-v1.api
