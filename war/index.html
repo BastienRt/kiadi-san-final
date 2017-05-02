@@ -26,6 +26,18 @@
           
       <!-- Theme CSS -->
       <link href="css/grayscale.min.css" rel="stylesheet">
+      
+      <!--  Scripts-->
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-google-gapi-1.0.1/src/angular-google-gapi.module.js"></script>
+		<script src="/js/angular-google-gapi-1.0.1/dist/angular-google-gapi.min.js"></script>
+		<script src="/js/app.config.js"></script>
+		<script src="/js/app.routes.js"></script>
+		<script src="/js/app.js"></script>
+		<script src="/js/grayscale.js"></script>
+		<script src="/js/grayscale.min.js"></script>
+		<script src="/js/controller.js"></script>
   </head>
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -52,7 +64,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Kiadi San</h1>
+                        <h1 class="brand-heading">KAIDI San</h1>
                         <table>
                 <tr>
                   <td colspan="4" style="font-weight:bold;">Available Servlets:</td>        
@@ -82,6 +94,18 @@
             </div>
         </div>
     </section>
+    
+    
+		<main>
+			<div ng-view></div>
+		</main>
+		
+		  <div class="container">
+    		<h1 class="title">KIADI-SAN</h1>
+    		<quiz></quiz>
+  			</div>
+  			
+  			{{name}}
     
     
     <!-- La partie Javascript -->

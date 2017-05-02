@@ -15,6 +15,9 @@ import javax.annotation.Nullable;
 import javax.inject.Named;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
+
+import org.datanucleus.store.appengine.query.JDOCursorHelper;
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 

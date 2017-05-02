@@ -1,13 +1,13 @@
 {
   "extends" : "thirdParty.api",
   "abstract" : false,
-  "root" : "https://kiadi-san-157609.appspot.com/_ah/api",
+  "root" : "https://kiadisan2.appspot.com/_ah/api",
   "name" : "scoreentityendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "discovery" : [ "PUBLIC" ],
   "adapter" : {
-    "bns" : "https://kiadi-san-157609.appspot.com/_ah/spi",
+    "bns" : "https://kiadisan2.appspot.com/_ah/spi",
     "deadline" : 65.0,
     "type" : "lily"
   },
@@ -27,6 +27,59 @@
   "ownerDomain" : "kiadi.com",
   "ownerName" : "kiadi.com",
   "methods" : {
+    "scoreentityendpoint.updateScoreEntity" : {
+      "path" : "scoreentity",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.updateScoreEntity",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "scoreentityendpoint.getScoreEntity" : {
+      "path" : "scoreentity/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.getScoreEntity",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "scoreentityendpoint.insertScoreEntity" : {
+      "path" : "scoreentity",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.insertScoreEntity",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "scoreentityendpoint.removeScoreEntity" : {
       "path" : "scoreentity/{id}",
       "httpMethod" : "DELETE",
@@ -48,38 +101,6 @@
         "body" : "empty"
       }
     },
-    "scoreentityendpoint.insertScoreEntity" : {
-      "path" : "scoreentity",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.insertScoreEntity",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "scoreentityendpoint.updateScoreEntity" : {
-      "path" : "scoreentity",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.updateScoreEntity",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "scoreentityendpoint.listScoreEntity" : {
       "path" : "scoreentity",
       "httpMethod" : "GET",
@@ -97,27 +118,6 @@
           "limit" : {
             "type" : "int32",
             "required" : false
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "scoreentityendpoint.getScoreEntity" : {
-      "path" : "scoreentity/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kiadi.ScoreEntityEndpoint.getScoreEntity",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
           }
         },
         "body" : "empty"
@@ -166,7 +166,18 @@
       }
     },
     "methods" : {
-      "com.kiadi.ScoreEntityEndpoint.removeScoreEntity" : {
+      "com.kiadi.ScoreEntityEndpoint.updateScoreEntity" : {
+        "request" : {
+          "$ref" : "ScoreEntity"
+        },
+        "response" : {
+          "$ref" : "ScoreEntity"
+        }
+      },
+      "com.kiadi.ScoreEntityEndpoint.getScoreEntity" : {
+        "response" : {
+          "$ref" : "ScoreEntity"
+        }
       },
       "com.kiadi.ScoreEntityEndpoint.insertScoreEntity" : {
         "request" : {
@@ -176,22 +187,11 @@
           "$ref" : "ScoreEntity"
         }
       },
-      "com.kiadi.ScoreEntityEndpoint.updateScoreEntity" : {
-        "request" : {
-          "$ref" : "ScoreEntity"
-        },
-        "response" : {
-          "$ref" : "ScoreEntity"
-        }
+      "com.kiadi.ScoreEntityEndpoint.removeScoreEntity" : {
       },
       "com.kiadi.ScoreEntityEndpoint.listScoreEntity" : {
         "response" : {
           "$ref" : "CollectionResponse_ScoreEntity"
-        }
-      },
-      "com.kiadi.ScoreEntityEndpoint.getScoreEntity" : {
-        "response" : {
-          "$ref" : "ScoreEntity"
         }
       }
     }
